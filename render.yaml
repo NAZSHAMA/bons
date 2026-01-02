@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: bonsai-api
+    env: docker
+    buildCommand: null
+    plan: free # Change to starter or higher if you want persistent disk or more RAM
+    region: ohio # Change as preferred
+    dockerContext: backend
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:////data/bonsai.db
+      - key: DEBUG
+        value: false
+      - key: APP_NAME
+        value: Bonsai API
+    disk:
+      name: bonsai-data
+      mountPath: /data
+      sizeGB: 1
