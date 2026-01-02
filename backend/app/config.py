@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     api_prefix: str = "/api/v1"
 
     # CORS
-    cors_origins: List[str] = ["http://localhost:3000"]
+    cors_origins: str = "http://localhost:3000,http://localhost:3001"
 
     # Database (SQLite with async support)
     database_url: str = "sqlite+aiosqlite:///./bonsai.db"
